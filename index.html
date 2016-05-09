@@ -22,14 +22,26 @@
                 </div>
             </div>
             <div class="panel-body" uib-collapse="isCollapsed">
-                <div class="row" ng-repeat="animal in item.animals" class="animalDescription">
-                    <div class="col-md-3">
-                        <img class="img-thumbnail" ng-src="{{animal.image1}}">
-                        <img class="img-thumbnail" ng-src="{{animal.image2}}">
+                <div class="row" ng-repeat="animal in item.animals">
+                    <div class="container">
+                        <div class="col-md-12 animal-description">
+                            <h3 class="text-primary">
+                                {{animal.name}}
+                            </h3>
+                            <p>
+                                {{animal.description}}
+                            </p>
+                        </div>
+                        <div class="container row">
+                            <div class="col-md-4">
+                                <img class="img-thumbnail img-responsive image" ng-src="{{animal.image1}}">
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-thumbnail img-responsive image" ng-src="{{animal.image2}}">
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9">
-                        {{animal.description}}
-                    </div>
+                    <hr ng-if="$index !== 3">
                 </div>
             </div>
         </div>
