@@ -1,31 +1,16 @@
 var express = require("express"),
     path = require("path"),
+    morgan = require("morgan"),
     fs = require("fs"),
-    morgan = require("morgan");
-
-var animalData;
-var publicPath = path.join(__dirname, "public");
+    animalData = require("./modules/animalData.js");
 
 var app = express();
-app.use("/", express.static(publicPath));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
-
-// get the data
-fs.readFile(path.join(publicPath, "data/AnimalsData.json"), 'utf8', function (err,data) {
-    if (err) {
-        throw err;
-    }
-    animalData = JSON.parse(data);
-});
 
 app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
 });
-
-app.get("/data", function (req, res) {
-    res.contentType("application/json");
-    res.json(animalData);
-})
 
 app.listen(3000, function () {
     console.log("Server listen at http://localhost:3000");
