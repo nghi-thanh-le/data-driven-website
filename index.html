@@ -16,12 +16,12 @@
         <h4 class="text-center text-success">Zoo Dictionary</h4>
 
         <div class="panel panel-default" ng-repeat="item in items">
-            <div class="panel-heading">
-                <h6 class="text-muted">
+            <div class="panel-heading" ng-click="isCollapsed = !isCollapsed">
+                <p class="lead">
                     {{item.name}}
-                </h6>
+                </p>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" uib-collapse="isCollapsed">
                 <div class="row">
                     <div class="col-md-3" ng-repeat="animal in item.animals">
                         <img class="img-thumbnail" ng-src="{{animal.image1}}">
@@ -31,7 +31,8 @@
         </div>
 
         <script src="js/angular.min.js"></script>
-        <script src="js/ui-bootstrap-tpls-1.3.2.min"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/ui-bootstrap-tpls-1.3.2.min.js"></script>
         <script src="js/assignment.js"></script>
     </body>
 </html>
