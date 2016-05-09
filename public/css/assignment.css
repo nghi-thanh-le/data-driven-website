@@ -1,9 +1,4 @@
 /* put your css code here */
-
-.animalDescription {
-    border: 1px solid #F8F8FF;
-}
-
 .center-panel {
     height: 100%;
     display:table;
@@ -15,4 +10,9 @@
     height: 100%;
     display: table-cell;
     vertical-align: middle;
+}
+
+.image {
+    width: 350px;
+    height: 275px;
 }
