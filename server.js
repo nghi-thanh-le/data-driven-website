@@ -6,7 +6,7 @@ var animalData;
 var publicPath = path.join(__dirname, "public");
 
 var app = express();
-app.use(express.static(publicPath));
+app.use("/", express.static(publicPath));
 
 // get the data
 fs.readFile(path.join(publicPath, "data/AnimalsData.json"), 'utf8', function (err,data) {
@@ -14,7 +14,6 @@ fs.readFile(path.join(publicPath, "data/AnimalsData.json"), 'utf8', function (er
         throw err;
     }
     animalData = JSON.parse(data);
-    console.log(animalData);
 });
 
 app.get("/", function (req, res) {

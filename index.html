@@ -1,6 +1,6 @@
 <!-- This is a first example of using a template -->
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +9,17 @@
         <title>Data-Driven website</title>
 
         <!-- include our libraries and css files -->
-        <link href="public/css/bootstrap.min.css" rel="stylesheet">
-        <link href="public/css/assignment.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/assignment.css" rel="stylesheet">
     </head>
-    <body>
+    <body ng-controller="myController">
         <h1>Hello world</h1>
 
-        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
-        <script type="text/javascript" src="public/js/assignment.js"></script>
+        <ul>
+            <li ng-repeat="item in items">{{item | json}}</li>
+        </ul>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/assignment.js"></script>
     </body>
 </html>
