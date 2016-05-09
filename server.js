@@ -1,8 +1,6 @@
 var express = require("express"),
     path = require("path"),
-    morgan = require("morgan"),
-    fs = require("fs"),
-    animalData = require("./modules/animalData.js");
+    morgan = require("morgan");
 
 var app = express();
 app.use(express.static(path.join(__dirname, "public")));
