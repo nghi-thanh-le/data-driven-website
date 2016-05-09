@@ -17,14 +17,18 @@
 
         <div class="panel panel-default" ng-repeat="item in items">
             <div class="panel-heading" ng-click="isCollapsed = !isCollapsed">
-                <p class="lead">
-                    {{item.name}}
-                </p>
+                <div class="container center-panel">
+                    <p class="lead center-text">{{item.name}}</p>
+                </div>
             </div>
             <div class="panel-body" uib-collapse="isCollapsed">
-                <div class="row">
-                    <div class="col-md-3" ng-repeat="animal in item.animals">
+                <div class="row" ng-repeat="animal in item.animals" class="animalDescription">
+                    <div class="col-md-3">
                         <img class="img-thumbnail" ng-src="{{animal.image1}}">
+                        <img class="img-thumbnail" ng-src="{{animal.image2}}">
+                    </div>
+                    <div class="col-md-9">
+                        {{animal.description}}
                     </div>
                 </div>
             </div>
