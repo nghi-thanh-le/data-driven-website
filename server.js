@@ -1,12 +1,14 @@
 var express = require("express"),
     path = require("path"),
-    fs = require("fs");
+    fs = require("fs"),
+    morgan = require("morgan");
 
 var animalData;
 var publicPath = path.join(__dirname, "public");
 
 var app = express();
 app.use("/", express.static(publicPath));
+app.use(morgan("dev"));
 
 // get the data
 fs.readFile(path.join(publicPath, "data/AnimalsData.json"), 'utf8', function (err,data) {
