@@ -3,12 +3,9 @@ var express = require("express"),
     morgan = require("morgan");
 
 var app = express();
-app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 
-app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
+app.use(express.static(path.join(__dirname, "public")));
 
 app.listen(3000, function () {
     console.log("Server listen at http://localhost:3000");
